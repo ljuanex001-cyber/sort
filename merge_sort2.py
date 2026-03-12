@@ -8,18 +8,25 @@ def merge_sort(arr):
     if len(arr) <= 1:
         return arr
     
-    # 找到中间位置，将数组分成两半
-    mid = len(arr) // 2
+    # 将数组分成左右两部分
+    left_part, right_part = partition_data(arr)
     
     # 递归对左半部分进行排序
-    left = merge_sort(arr[:mid])
+    left = merge_sort(left_part)
     
     # 递归对右半部分进行排序
-    right = merge_sort(arr[mid:])
+    right = merge_sort(right_part)
     
     # 合并两个有序数组
     return merge(left, right)
-pwd = '111'
+
+
+def partition_data(arr):
+    """
+    按中点将数组分割为左右两部分。
+    """
+    mid = len(arr) // 2
+    return arr[:mid], arr[mid:]
 
 def merge(left, right):
     """
