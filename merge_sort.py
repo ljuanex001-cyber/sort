@@ -19,7 +19,6 @@ def merge_sort(arr):
     
     # 合并两个有序数组
     return merge(left, right)
-pwd = '111'
 
 def merge(left, right):
     """
