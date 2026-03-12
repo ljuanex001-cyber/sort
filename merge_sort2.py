@@ -9,17 +9,22 @@ def merge_sort(arr):
         return arr
     
     # 找到中间位置，将数组分成两半
-    mid = len(arr) // 2
-    
-    # 递归对左半部分进行排序
-    left = merge_sort(arr[:mid])
-    
-    # 递归对右半部分进行排序
-    right = merge_sort(arr[mid:])
+    left_part, right_part = split_array(arr)
+
+    # 递归对左右部分进行排序
+    left = merge_sort(left_part)
+    right = merge_sort(right_part)
     
     # 合并两个有序数组
     return merge(left, right)
-pwd = '111'
+
+
+def split_array(arr):
+    """
+    将数组按中点拆分成左右两部分
+    """
+    mid = len(arr) // 2
+    return arr[:mid], arr[mid:]
 
 def merge(left, right):
     """
